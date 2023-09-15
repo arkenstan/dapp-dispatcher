@@ -1,25 +1,22 @@
 {
-  "name": "room-ui",
+  "name": "dispatcher-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "dapp-p2p-gun",
-  "sourceRoot": "apps/room-ui/src",
+  "sourceRoot": "apps/dispatcher-ui/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/room-ui",
-        "index": "apps/room-ui/src/index.html",
-        "main": "apps/room-ui/src/main.ts",
+        "outputPath": "dist/apps/dispatcher-ui",
+        "index": "apps/dispatcher-ui/src/index.html",
+        "main": "apps/dispatcher-ui/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/room-ui/tsconfig.app.json",
-        "assets": ["apps/room-ui/src/favicon.ico", "apps/room-ui/src/assets"],
-        "styles": [
-          "@angular/material/prebuilt-themes/deeppurple-amber.css",
-          "apps/room-ui/src/styles.scss"
-        ],
+        "tsConfig": "apps/dispatcher-ui/tsconfig.app.json",
+        "assets": ["apps/dispatcher-ui/src/favicon.ico", "apps/dispatcher-ui/src/assets"],
+        "styles": ["@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/dispatcher-ui/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "room-ui:build:production"
+          "browserTarget": "dispatcher-ui:build:production"
         },
         "development": {
-          "browserTarget": "room-ui:build:development"
+          "browserTarget": "dispatcher-ui:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,21 +61,21 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "room-ui:build"
+        "browserTarget": "dispatcher-ui:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/room-ui/**/*.ts", "apps/room-ui/**/*.html"]
+        "lintFilePatterns": ["apps/dispatcher-ui/**/*.ts", "apps/dispatcher-ui/**/*.html"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/room-ui/jest.config.ts",
+        "jestConfig": "apps/dispatcher-ui/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -91,7 +88,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "room-ui:build"
+        "buildTarget": "dispatcher-ui:build"
       }
     }
   }

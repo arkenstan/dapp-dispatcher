@@ -1,0 +1,31 @@
+<div class="toolbar">
+  <span>Dispatcher</span>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="clearAlerts()">Clear Alerts</button>
+  <button mat-raised-button (click)="clearAnomalies()">Clear Anomalies</button>
+  <button mat-button (click)="listAnomalies()">List Anomalies</button>
+</div>
+
+<div class="content">
+  <div class="anomaly-container" *ngIf="anomalies.length > 0; else noAnomaly">
+    <div class="anomaly" *ngFor="let item of anomalies">
+      <div class="title">{{ item.agentId }}</div>
+
+      <div class="type">{{ item.anomalyType }}</div>
+
+      <div class="actions">
+        <button mat-icon-button color="accent" (click)="sendAlert(item.agentId)">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="markAnomalyComplete(item.agentId)">
+          <mat-icon>done</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noAnomaly>
+    <div class="notify">
+      <h1>No Anomalies detected</h1>
+    </div>
+  </ng-template>
+</div>

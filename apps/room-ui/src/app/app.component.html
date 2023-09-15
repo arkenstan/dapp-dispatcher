@@ -1,2 +1,8 @@
-<dapp-p2p-gun-nx-welcome></dapp-p2p-gun-nx-welcome>
-<router-outlet></router-outlet>
+<div class="toolbar" [ngClass]="{ alert: _app.hasAlert }">
+  <span>Room Machine</span>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="triggerAnomaly()">Trigger Anomaly</button>
+</div>
+<mat-form-field>
+  <input matInput type="text" placeholder="Room Name" [formControl]="clientNameInput" />
+</mat-form-field>
